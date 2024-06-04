@@ -60,20 +60,33 @@ function GameBoard(gamePlacement) {
   function allShipsSunk(shipArray) {
     return shipArray.every((ship) => ship.sunk == true);
   }
+
+  return {
+    missedAttacks,
+    shipPlacement,
+    receiveAttack,
+    allShipsSunk,
+  };
 }
 
-let gamePlacement = [];
-for (let i = 0; i < 10; i++) {
-  gamePlacement.push([]);
-  for (let j = 0; j < 10; j++) {
-    gamePlacement[i].push([]);
-    gamePlacement[i][j] = "O";
+function Player() {
+  let gamePlacement = [];
+  for (let i = 0; i < 10; i++) {
+    gamePlacement.push([]);
+    for (let j = 0; j < 10; j++) {
+      gamePlacement[i].push([]);
+      gamePlacement[i][j] = "O";
+    }
   }
+
+  let playerBoard = GameBoard(gamePlacement);
+
+  return {
+    gamePlacement,
+    playerBoard,
+  };
 }
-// a = [1, 2, 3, 4];
-// if (a.includes(1)) {
-//   console.log("gu");
-// }
+
 // Create ship objects
 
 // Add ship objects to a array
