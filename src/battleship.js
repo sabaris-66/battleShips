@@ -1,5 +1,4 @@
-function Ship(shipNo) {
-  let length = 0;
+function Ship(shipNo, length) {
   let hits = 0;
   let shipCoordinate = [];
   let sunk = false;
@@ -8,7 +7,7 @@ function Ship(shipNo) {
     hits++;
   }
 
-  function isSuck() {
+  function isSunk() {
     if (hits == length) {
       sunk = true;
     }
@@ -21,7 +20,7 @@ function Ship(shipNo) {
     shipCoordinate,
     sunk,
     hit,
-    isSuck,
+    isSunk,
   };
 }
 
@@ -78,22 +77,31 @@ function Player() {
       gamePlacement[i][j] = "O";
     }
   }
-
+  // use gameBoard factory to create gamePlacement
   let playerBoard = GameBoard(gamePlacement);
+
+  // use Ship factory to create five ships for player
+  let carrier = Ship(0, 5);
+  let battleship = Ship(1, 4);
+  let cruiser = Ship(2, 3);
+  let submarine = Ship(3, 3);
+  let destroyer = Ship(4, 2);
+
+  // list of player ships
+  let playerShips = [carrier, battleship, cruiser, submarine, destroyer];
 
   return {
     gamePlacement,
     playerBoard,
+    playerShips,
   };
 }
 
 // Create ship objects
-
-// Add ship objects to a array
-shipArray = [];
+player1 = Player();
+player2 = Player();
 
 module.exports = {
-  Ship,
-  GameBoard,
-  Player,
+  player1,
+  player2,
 };
