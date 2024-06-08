@@ -20,6 +20,10 @@ function opening() {
   const rotate = document.createElement("button");
   rotate.classList.add("rotate");
   rotate.textContent = "Rotate";
+  rotate.value = 0;
+  rotate.addEventListener("click", () => {
+    rotate.value = 1;
+  });
 
   introPage.append(welcome);
   introPage.append(welcome2);
@@ -29,9 +33,17 @@ function opening() {
   container.classList.add("container");
   introPage.append(container);
 
-  player1.gamePlacement.forEach((plots) => {
+  player1.gamePlacement.forEach((plot) => {
     let div = document.createElement("div");
-    div.classList.add("plots");
+    div.classList.add("plot");
     container.append(div);
+    div.addEventListener("click", () => {
+      let ship;
+      player1.playerShips.forEach((battleShip) => {
+        if (battleShip.placed != true) {
+          if(plots)
+        }
+      });
+    });
   });
 }
