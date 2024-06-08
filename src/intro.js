@@ -6,6 +6,8 @@ function opening() {
 
   const introPage = document.createElement("div");
   introPage.classList.add("introPage");
+  introPage.classList.add("remove");
+  content.append(introPage);
 
   const welcome = document.createElement("div");
   welcome.classList.add("welcome");
@@ -19,5 +21,17 @@ function opening() {
   rotate.classList.add("rotate");
   rotate.textContent = "Rotate";
 
-  player1.gamePlacement.forEach((plots) => {});
+  introPage.append(welcome);
+  introPage.append(welcome2);
+  introPage.append(rotate);
+
+  const container = document.createElement("div");
+  container.classList.add("container");
+  introPage.append(container);
+
+  player1.gamePlacement.forEach((plots) => {
+    let div = document.createElement("div");
+    div.classList.add("plots");
+    container.append(div);
+  });
 }
