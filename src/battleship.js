@@ -2,6 +2,7 @@ function Ship(shipNo, length) {
   let hits = 0;
   let shipCoordinate = [];
   let sunk = false;
+  let placed = false;
 
   function hit() {
     hits++;
@@ -17,6 +18,7 @@ function Ship(shipNo, length) {
     shipNo,
     length,
     hits,
+    placed,
     shipCoordinate,
     sunk,
     hit,
