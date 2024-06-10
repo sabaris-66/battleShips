@@ -65,3 +65,5 @@ function opening() {
   play.classList.add("playButton");
   introPage.append(play);
 }
+
+export default opening;
