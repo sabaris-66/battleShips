@@ -61,4 +61,7 @@ function opening() {
       });
     });
   });
+  let play = document.createElement("button");
+  play.classList.add("playButton");
+  content.append(play);
 }
