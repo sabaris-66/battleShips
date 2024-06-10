@@ -30,6 +30,8 @@ function GameBoard(gamePlacement) {
   let start = 0;
   let end = 0;
   let missedAttacks = [];
+  let placedPlots = [];
+  let unPlayablePlots = [];
 
   function shipPlacement(ship, placement) {
     ship.shipCoordinate.push(placement);
@@ -38,12 +40,18 @@ function GameBoard(gamePlacement) {
       end = placement[1][1];
       for (start; start <= end; start++) {
         gamePlacement[i][start] = ship.shipNo;
+        placedPlots.push([i, start]);
+        unPlayablePlots.push([i + 1, start]);
+        unPlayablePlots.push([i - 1, start]);
       }
     } else {
       start = placement[0][0];
       end = placement[1][0];
       for (start; start <= end; start++) {
         gamePlacement[start][j] = ship.shipNo;
+        placedPlots.push([start, j]);
+        unPlayablePlotsPlots.push([start, j + 1]);
+        unPlayablePlotsPlots.push([start, j - 1]);
       }
     }
   }
@@ -64,6 +72,8 @@ function GameBoard(gamePlacement) {
 
   return {
     missedAttacks,
+    placedPlots,
+    unPlayablePlots,
     shipPlacement,
     receiveAttack,
     allShipsSunk,
