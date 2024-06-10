@@ -38,10 +38,25 @@ function opening() {
     div.classList.add("plot");
     container.append(div);
     div.addEventListener("click", () => {
-      let ship;
+      // let ship;
       player1.playerShips.forEach((battleShip) => {
         if (battleShip.placed != true) {
-          if(plots)
+          if (
+            !player1.playerBoard.placedPlots.includes(plot) &&
+            !player1.playerBoard.unPlayablePlots.includes(plot)
+          ) {
+            if ((rotate = 0)) {
+              player1.playerBoard.shipPlacement(battleShip, [
+                plot,
+                [plot[0], plot[1] + battleShip.length - 1],
+              ]);
+            } else {
+              player1.playerBoard.shipPlacement(battleShip, [
+                plot,
+                [plot[0] + battleShip.length - 1, plot[1]],
+              ]);
+            }
+          }
         }
       });
     });
