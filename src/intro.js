@@ -19,9 +19,13 @@ function opening() {
   const rotate = document.createElement("button");
   rotate.classList.add("rotate");
   rotate.textContent = "Rotate";
-  rotate.value = 0;
+  rotate.value = "0";
   rotate.addEventListener("click", () => {
-    rotate.value = "1";
+    if ((rotate.value = "0")) {
+      rotate.value = "1";
+    } else {
+      rotate.value = "0";
+    }
   });
 
   introPage.append(welcome);
