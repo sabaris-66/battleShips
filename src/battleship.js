@@ -44,8 +44,32 @@ function GameBoard(gamePlacement) {
       for (start; start <= end; start++) {
         gamePlacement[start][col] = ship.shipNo;
         placedPlots.push([start, col]);
-        // unPlayablePlots.push([start + 1, col]);
-        // unPlayablePlots.push([start - 1, col]);
+        if (col + 1 < 10) {
+          unPlayablePlots.push([start, col + 1]);
+        }
+        if (col - 1 >= 0) {
+          unPlayablePlots.push([start, col - 1]);
+        }
+      }
+
+      if (placement[0][0] - 1 >= 0) {
+        unPlayablePlots.push([placement[0][0] - 1, col]);
+      }
+      if (placement[1][0] + 1 < 10) {
+        unPlayablePlots.push([placement[1][0] + 1, col]);
+      }
+
+      if (placement[0][0] - 1 >= 0 && col - 1 >= 0) {
+        unPlayablePlots.push([placement[0][0] - 1, col - 1]);
+      }
+      if (placement[0][0] - 1 >= 0 && col + 1 < 10) {
+        unPlayablePlots.push([placement[0][0] - 1, col + 1]);
+      }
+      if (placement[1][0] + 1 < 10 && col - 1 >= 0) {
+        unPlayablePlots.push([placement[1][0] + 1, col - 1]);
+      }
+      if (placement[1][0] + 1 < 10 && col + 1 < 10) {
+        unPlayablePlots.push([placement[1][0] + 1, col + 1]);
       }
     } else {
       start = placement[0][1];
@@ -54,11 +78,38 @@ function GameBoard(gamePlacement) {
       for (start; start <= end; start++) {
         gamePlacement[row][start] = ship.shipNo;
         placedPlots.push([row, start]);
-        // unPlayablePlotsPlots.push([row, start + 1]);
-        // unPlayablePlotsPlots.push([row, start - 1]);
+        if (row + 1 < 10) {
+          unPlayablePlots.push([row + 1, start]);
+        }
+        if (row - 1 >= 0) {
+          unPlayablePlots.push([row - 1, start]);
+        }
+      }
+
+      if (placement[0][1] - 1 >= 0) {
+        unPlayablePlots.push([row, placement[0][1] - 1]);
+      }
+      if (placement[1][1] + 1 < 10) {
+        unPlayablePlots.push([row, placement[1][1] + 1]);
+      }
+
+      if (placement[0][1] - 1 >= 0 && row - 1 >= 0) {
+        unPlayablePlots.push([row - 1, placement[0][1] - 1]);
+      }
+      if (placement[0][1] - 1 >= 0 && row + 1 < 10) {
+        unPlayablePlots.push([row + 1, placement[0][1] - 1]);
+      }
+      if (placement[1][1] + 1 < 10 && row - 1 >= 0) {
+        unPlayablePlots.push([row - 1, placement[1][1] + 1]);
+      }
+      if (placement[1][1] + 1 < 10 && row + 1 < 10) {
+        unPlayablePlots.push([row + 1, placement[1][1] + 1]);
       }
     }
+    ship.placed = true;
     console.log(gamePlacement);
+    console.log(placedPlots);
+    console.log(unPlayablePlots);
   }
 
   function receiveAttack(coordinate1, coordinate2, shipArray) {
