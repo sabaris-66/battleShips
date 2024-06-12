@@ -21,7 +21,7 @@ function opening() {
   rotate.textContent = "Rotate";
   rotate.value = "0";
   rotate.addEventListener("click", () => {
-    if ((rotate.value = "0")) {
+    if (rotate.value == "0") {
       rotate.value = "1";
     } else {
       rotate.value = "0";
@@ -60,7 +60,7 @@ function opening() {
             !player1Board.placedPlots.includes([i, j]) &&
             !player1Board.unPlayablePlots.includes([i, j])
           ) {
-            if ((rotate.value = "0")) {
+            if (rotate.value == "0") {
               if (j + player1.playerShips[selectShip].length < 10) {
                 player1Board.shipPlacement(player1.playerShips[selectShip], [
                   [i, j],
