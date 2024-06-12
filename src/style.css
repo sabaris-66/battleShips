@@ -34,8 +34,8 @@ button{
     resize: both;
     overflow: auto;
     display: grid;
-    /* gap: 4px; */
-    padding: 4px;
+    gap: 1px;
+    padding: 2px;
     border: 1px solid grey;
     background-color: skyblue;
     grid-template-rows: repeat(10, 1fr);
