@@ -34,26 +34,31 @@ function GameBoard(gamePlacement) {
   let unPlayablePlots = [];
 
   function shipPlacement(ship, placement) {
-    ship.shipCoordinate.push(placement);
+    console.log(placement);
+    ship.shipCoordinate.push(placement[0]);
+    ship.shipCoordinate.push(placement[1]);
     if (placement[0][0] != placement[1][0]) {
-      start = placement[0][1];
-      end = placement[1][1];
-      for (start; start <= end; start++) {
-        gamePlacement[i][start] = ship.shipNo;
-        placedPlots.push([i, start]);
-        unPlayablePlots.push([i + 1, start]);
-        unPlayablePlots.push([i - 1, start]);
-      }
-    } else {
       start = placement[0][0];
       end = placement[1][0];
+      let col = placement[0][1];
       for (start; start <= end; start++) {
-        gamePlacement[start][j] = ship.shipNo;
-        placedPlots.push([start, j]);
-        unPlayablePlotsPlots.push([start, j + 1]);
-        unPlayablePlotsPlots.push([start, j - 1]);
+        gamePlacement[start][col] = ship.shipNo;
+        placedPlots.push([start, col]);
+        // unPlayablePlots.push([start + 1, col]);
+        // unPlayablePlots.push([start - 1, col]);
+      }
+    } else {
+      start = placement[0][1];
+      end = placement[1][1];
+      let row = placement[0][0];
+      for (start; start <= end; start++) {
+        gamePlacement[row][start] = ship.shipNo;
+        placedPlots.push([row, start]);
+        // unPlayablePlotsPlots.push([row, start + 1]);
+        // unPlayablePlotsPlots.push([row, start - 1]);
       }
     }
+    console.log(gamePlacement);
   }
 
   function receiveAttack(coordinate1, coordinate2, shipArray) {
@@ -89,8 +94,6 @@ function Player() {
       gamePlacement[i][j] = "O";
     }
   }
-  // use gameBoard factory to create gamePlacement
-  let playerBoard = GameBoard(gamePlacement);
 
   // use Ship factory to create five ships for player
   let carrier = Ship(0, 5);
@@ -104,16 +107,22 @@ function Player() {
 
   return {
     gamePlacement,
-    playerBoard,
     playerShips,
   };
 }
 
 // Create ship objects
-player1 = Player();
-player2 = Player();
+let player1 = Player();
+// use gameBoard factory to create gamePlacement
+let player1Board = GameBoard(player1.gamePlacement);
+
+let player2 = Player();
+// use gameBoard factory to create gamePlacement
+let player2Board = GameBoard(player2.gamePlacement);
 
 module.exports = {
   player1,
+  player1Board,
   player2,
+  player2Board,
 };

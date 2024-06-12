@@ -1,4 +1,4 @@
-import { player1, player2 } from "./battleship";
+import { player1, player1Board } from "./battleship";
 
 function opening() {
   const body = document.querySelector("body");
@@ -6,7 +6,6 @@ function opening() {
 
   const introPage = document.createElement("div");
   introPage.classList.add("introPage");
-  introPage.classList.add("remove");
   content.append(introPage);
 
   const welcome = document.createElement("div");
@@ -22,7 +21,7 @@ function opening() {
   rotate.textContent = "Rotate";
   rotate.value = 0;
   rotate.addEventListener("click", () => {
-    rotate.value = 1;
+    rotate.value = "1";
   });
 
   introPage.append(welcome);
@@ -33,37 +32,63 @@ function opening() {
   container.classList.add("container");
   introPage.append(container);
 
-  player1.gamePlacement.forEach((plot) => {
-    let div = document.createElement("div");
-    div.classList.add("plot");
-    container.append(div);
-    div.addEventListener("click", () => {
-      // let ship;
-      player1.playerShips.forEach((battleShip) => {
-        if (battleShip.placed != true) {
+  // let i = 0;
+  // let j = 0;
+  // player1.gamePlacement.forEach((plots) => {
+  //   j = 0;
+  //   plots.forEach((plot) => {
+  for (let i = 0; i < 10; i++) {
+    for (let j = 0; j < 10; j++) {
+      let div = document.createElement("div");
+      div.classList.add("plot");
+      container.append(div);
+      div.addEventListener("click", () => {
+        let selectShip = -1;
+        for (let a = 0; a < 5; a++) {
+          if (player1.playerShips[a].placed != true) {
+            selectShip = a;
+            break;
+          }
+        }
+        // player1.playerShips.forEach((player1.playerShips[selectShip]) => {
+        if (selectShip >= 0) {
           if (
-            !player1.playerBoard.placedPlots.includes(plot) &&
-            !player1.playerBoard.unPlayablePlots.includes(plot)
+            !player1Board.placedPlots.includes([i, j]) &&
+            !player1Board.unPlayablePlots.includes([i, j])
           ) {
-            if ((rotate = 0)) {
-              player1.playerBoard.shipPlacement(battleShip, [
-                plot,
-                [plot[0], plot[1] + battleShip.length - 1],
-              ]);
+            if ((rotate.value = "0")) {
+              if (j + player1.playerShips[selectShip].length < 10) {
+                player1Board.shipPlacement(player1.playerShips[selectShip], [
+                  [i, j],
+                  [i, j + player1.playerShips[selectShip].length - 1],
+                ]);
+              }
             } else {
-              player1.playerBoard.shipPlacement(battleShip, [
-                plot,
-                [plot[0] + battleShip.length - 1, plot[1]],
-              ]);
+              if (i + player1.playerShips[selectShip].length < 10) {
+                player1Board.shipPlacement(player1.playerShips[selectShip], [
+                  [i, j],
+                  [i + player1.playerShips[selectShip].length - 1, j],
+                ]);
+              }
             }
           }
         }
+        // });
       });
-    });
-  });
+    }
+  }
+
+  //     j++;
+  //   });
+  //   i++;
+  // });
   let play = document.createElement("button");
   play.classList.add("playButton");
+  play.textContent = "Play";
   introPage.append(play);
+  play.addEventListener("click", () => {
+    introPage.remove();
+  });
 }
 
 export default opening;
