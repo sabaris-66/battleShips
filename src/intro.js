@@ -10,11 +10,11 @@ function opening() {
 
   const welcome = document.createElement("div");
   welcome.classList.add("welcome");
-  welcome.textContent = "Welcome to battleship game";
+  welcome.textContent = "Welcome To Battle Ship Game";
 
   const welcome2 = document.createElement("div");
   welcome2.classList.add("welcome2");
-  welcome2.textContent = "Place your Carrier";
+  welcome2.textContent = "Place Your Carrier";
 
   const rotate = document.createElement("button");
   rotate.classList.add("rotate");
