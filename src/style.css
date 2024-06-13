@@ -19,10 +19,11 @@ body{
 .introPage{
     width: 100%;
     height: 100%;
-    display: flexbox;
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    background-color:goldenrod;
 }
 
 button{
@@ -36,10 +37,12 @@ button{
     display: grid;
     gap: 1px;
     padding: 2px;
-    border: 1px solid grey;
+    border: 20px solid black;
     background-color: skyblue;
     grid-template-rows: repeat(10, 1fr);
     grid-template-columns: repeat(10, 1fr);
+    height: 50%;
+    width: 30%;
 }
 
 .plot {
@@ -53,4 +56,19 @@ button{
 
 .colorIntroShips{
     background-color: yellow;
+}
+
+.welcome,
+.welcome2{
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.rotate,
+.playButton{
+    padding: 15px;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    font-size: larger;
 }
