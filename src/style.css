@@ -2,7 +2,7 @@
 *{
     padding: 0;
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: fantasy;
 }
 
 html,
@@ -31,7 +31,12 @@ button{
     padding: 0;
 }
 
+button:hover{
+    cursor: pointer;
+}
+
 .container {
+    cursor: pointer;
     resize: both;
     overflow: auto;
     display: grid;
@@ -61,7 +66,7 @@ button{
 .welcome,
 .welcome2{
     font-size: xx-large;
-    font-weight: bolder;
+    font-weight: bold;
 }
 
 .rotate,
@@ -71,4 +76,9 @@ button{
     color: white;
     border-radius: 20px;
     font-size: larger;
+}
+
+.rotate:hover,
+.playButton:hover{
+    background-color: gray;
 }
