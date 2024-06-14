@@ -36,11 +36,6 @@ function opening() {
   container.classList.add("container");
   introPage.append(container);
 
-  // let i = 0;
-  // let j = 0;
-  // player1.gamePlacement.forEach((plots) => {
-  //   j = 0;
-  //   plots.forEach((plot) => {
   for (let i = 0; i < 10; i++) {
     for (let j = 0; j < 10; j++) {
       let div = document.createElement("div");
@@ -55,33 +50,16 @@ function opening() {
           }
         }
         let validClick = true;
-        // player1.playerShips.forEach((player1.playerShips[selectShip]) => {
         if (selectShip >= 0) {
           if (
             rotate.value == "0" &&
-            j + player1.playerShips[selectShip].length < 10
+            j + player1.playerShips[selectShip].length <= 10
           ) {
             for (
               let column = j;
               column < j + player1.playerShips[selectShip].length;
               column++
             ) {
-              // console.log(player1.placedPlots);
-              // console.log(player1.unPlayablePlots);
-              // if (
-              //   player1Board.placedPlots.includes([i, column]) ||
-              //   player1Board.unPlayablePlots.includes([i, column])
-              // ) {
-              //   validClick = false;
-              //   break;
-              // }
-              // player1Board.placedPlots.forEach((placedPlot) => {
-              //   if (placedPlot[0] == i && placedPlot[1] == column) {
-              //     validClick = false;
-
-              //   }
-              // })
-
               for (
                 let newI = 0;
                 newI < player1Board.placedPlots.length;
@@ -116,22 +94,12 @@ function opening() {
                 [i, j + player1.playerShips[selectShip].length - 1],
               ]);
             }
-          } else if (i + player1.playerShips[selectShip].length < 10) {
+          } else if (i + player1.playerShips[selectShip].length <= 10) {
             for (
               let tempRow = i;
               tempRow < i + player1.playerShips[selectShip].length;
               tempRow++
             ) {
-              // console.log(player1.placedPlots);
-              // console.log(player1.unPlayablePlots);
-              // if (
-              //   player1Board.placedPlots.includes([tempRow, j]) ||
-              //   player1Board.unPlayablePlots.includes([tempRow, j])
-              // ) {
-              //   validClick = false;
-              //   break;
-              // }
-
               for (
                 let newI = 0;
                 newI < player1Board.placedPlots.length;
