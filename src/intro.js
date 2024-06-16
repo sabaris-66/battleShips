@@ -1,6 +1,4 @@
-import { player1, player1Board } from "./battleship";
-
-function opening() {
+function opening(player1, player1Board) {
   const body = document.querySelector("body");
   const content = document.querySelector(".content");
 
@@ -165,9 +163,6 @@ function opening() {
   play.classList.add("playButton");
   play.textContent = "Play";
   introPage.append(play);
-  play.addEventListener("click", () => {
-    introPage.remove();
-  });
 }
 
 export default opening;
