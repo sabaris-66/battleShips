@@ -1,6 +1,4 @@
-import { player2, player2Board } from "./battleship";
-
-function computerPlacement() {
+function computerPlacement(player2, player2Board) {
   let selectShip = 0;
 
   while (selectShip < 5) {
