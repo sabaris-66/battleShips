@@ -8,11 +8,9 @@ function Ship(shipNo, length) {
     hits++;
   }
 
-  function isSunk() {
-    if (hits == length) {
-      sunk = true;
-    }
-  }
+  const isSunk = () => {
+    console.log(hits);
+  };
 
   return {
     shipNo,
@@ -172,8 +170,6 @@ let player2 = Player();
 let player2Board = GameBoard(player2.gamePlacement);
 
 module.exports = {
-  player1,
-  player1Board,
-  player2,
-  player2Board,
+  Player,
+  GameBoard,
 };
