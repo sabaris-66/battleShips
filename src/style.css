@@ -42,7 +42,7 @@ button:hover{
     width: 100%;
     justify-content: space-around;
     align-items: center;
-    height: 70%;
+    height: 80%;
 }
 
 .container,
@@ -78,6 +78,14 @@ button:hover{
     background-color: yellow;
 }
 
+.colorAttackedShips {
+    background-color: red;
+}
+
+.colorWrongShips{
+    background-color: green;
+}
+
 .welcome,
 .welcome2{
     font-size: xx-large;
@@ -90,7 +98,8 @@ button:hover{
 }
 
 .rotate,
-.playButton{
+.playButton,
+.replay{
     padding: 15px;
     background-color: black;
     color: white;
@@ -101,4 +110,26 @@ button:hover{
 .rotate:hover,
 .playButton:hover{
     background-color: gray;
+}
+
+.replay:hover {
+    background-color: white;
+}
+
+.resultPage{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    font-family: fantasy;
+    font-size: 40px;
+    font-weight: bold;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: gray;
+}
+
+.replay{
+    padding: 15px;
 }
