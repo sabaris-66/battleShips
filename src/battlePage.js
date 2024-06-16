@@ -118,8 +118,9 @@ function battlePage(player1, player1Board, player2, player2Board) {
               player1.playerShips[attackedShip].hits ==
               player1.playerShips[attackedShip].length
             ) {
+              player1.playerShips[attackedShip].sunk = true;
               console.log(player1.playerShips);
-              let p1ShipsSunk = player2.playerShips.every((ship) => ship.sunk);
+              let p1ShipsSunk = player1.playerShips.every((ship) => ship.sunk);
               console.log(p1ShipsSunk);
               if (p1ShipsSunk == true) {
                 console.log("p2 won");
